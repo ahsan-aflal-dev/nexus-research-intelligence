@@ -1,0 +1,50 @@
+﻿# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local documents, indexes, databases and embeddings
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.npy
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/coverage/
+
+# Editors and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local test logs
+nexus-live-test.txt
+# Local Hermes benchmark output and session metadata
+hermes-benchmark.json
+hermes-*-benchmark.json
+# Local script backups
+*.before-release-*.bak
+*.before-delete-tests.bak
+*.before-delete-fix.bak
+
+# Local backups and release-preparation helper
+*.bak
+update-release.ps1

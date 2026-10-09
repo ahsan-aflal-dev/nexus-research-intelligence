@@ -1,0 +1,115 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">NEXUS RAG workflow</title>
+  <desc id="desc">Documents are processed into embeddings and a local vector index. A user question retrieves evidence, which is sent to Hermes to generate an answer with source references.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .title { fill: #f8fafc; font-size: 30px; font-weight: 700; }
+      .subtitle { fill: #94a3b8; font-size: 15px; }
+      .node { fill: #111c2f; stroke: #334155; stroke-width: 1.5; }
+      .node-accent { fill: #102738; stroke: #22d3ee; stroke-width: 1.6; }
+      .node-title { fill: #e2e8f0; font-size: 16px; font-weight: 650; text-anchor: middle; }
+      .node-sub { fill: #94a3b8; font-size: 12px; text-anchor: middle; }
+      .path { fill: none; stroke: #475569; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: url(#accent); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 7 12; animation: travel 2.4s linear infinite; }
+      .small-label { fill: #67e8f9; font-size: 11px; letter-spacing: 1.3px; font-weight: 650; }
+      @keyframes travel { to { stroke-dashoffset: -76; } }
+      @media (prefers-reduced-motion: reduce) {
+        .flow { animation: none; stroke-dasharray: none; opacity: .8; }
+      }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowFlow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="660" rx="24" fill="url(#bg)"/>
+  <circle cx="1030" cy="105" r="150" fill="#1d4ed8" opacity=".08"/>
+  <circle cx="130" cy="575" r="190" fill="#0891b2" opacity=".06"/>
+
+  <text x="54" y="62" class="title">Inside NEXUS</text>
+  <text x="55" y="91" class="subtitle">From raw documents to answers grounded in retrieved evidence</text>
+  <rect x="54" y="112" width="1092" height="1" fill="#334155"/>
+
+  <text x="65" y="154" class="small-label">01 / INGEST &amp; INDEX</text>
+  <text x="65" y="375" class="small-label">02 / ASK &amp; RETRIEVE</text>
+
+  <!-- Indexing pipeline -->
+  <rect class="node" x="65" y="180" width="180" height="100" rx="16"/>
+  <text x="155" y="219" class="node-title">PDF documents</text>
+  <text x="155" y="244" class="node-sub">Research sources</text>
+  <path d="M245 230 H280" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node" x="286" y="180" width="180" height="100" rx="16"/>
+  <text x="376" y="219" class="node-title">Text processing</text>
+  <text x="376" y="244" class="node-sub">Extract â€¢ chunk â€¢ label</text>
+  <path d="M466 230 H501" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node" x="507" y="180" width="180" height="100" rx="16"/>
+  <text x="597" y="219" class="node-title">Embeddings</text>
+  <text x="597" y="244" class="node-sub">Semantic vectors</text>
+  <path d="M687 230 H722" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node-accent" x="728" y="180" width="195" height="100" rx="16"/>
+  <text x="825" y="219" class="node-title">Local vector index</text>
+  <text x="825" y="244" class="node-sub">Vectors + metadata</text>
+  <path d="M923 230 H960 V405 H923" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node" x="65" y="405" width="180" height="100" rx="16"/>
+  <text x="155" y="444" class="node-title">User question</text>
+  <text x="155" y="469" class="node-sub">Natural language</text>
+  <path d="M245 455 H280" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node" x="286" y="405" width="180" height="100" rx="16"/>
+  <text x="376" y="444" class="node-title">Question embedding</text>
+  <text x="376" y="469" class="node-sub">Same vector space</text>
+  <path d="M466 455 H501" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node-accent" x="507" y="405" width="180" height="100" rx="16"/>
+  <text x="597" y="444" class="node-title">Semantic retrieval</text>
+  <text x="597" y="469" class="node-sub">Rank relevant chunks</text>
+  <path d="M687 455 H722" class="path" marker-end="url(#arrow)"/>
+
+  <rect class="node" x="728" y="405" width="195" height="100" rx="16"/>
+  <text x="825" y="444" class="node-title">Retrieved evidence</text>
+  <text x="825" y="469" class="node-sub">Text + source metadata</text>
+
+  <!-- Generation and answer -->
+  <path d="M825 505 V535 H995 V505" class="path" marker-end="url(#arrow)"/>
+  <rect class="node-accent" x="928" y="405" width="210" height="100" rx="16" opacity="0"/>
+  <rect class="node" x="938" y="405" width="200" height="100" rx="16"/>
+  <text x="1038" y="444" class="node-title">Hermes workflow</text>
+  <text x="1038" y="469" class="node-sub">Context-aware generation</text>
+
+  <path d="M1038 505 V550 H825" class="path" marker-end="url(#arrow)"/>
+  <rect class="node-accent" x="507" y="535" width="312" height="70" rx="16"/>
+  <text x="663" y="564" class="node-title">Answer with source references</text>
+  <text x="663" y="585" class="node-sub">Inspect evidence in the NEXUS UI</text>
+
+  <!-- Animated data paths -->
+  <path d="M245 230 H280" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M466 230 H501" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M687 230 H722" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M923 230 H960 V405 H923" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M245 455 H280" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M466 455 H501" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M687 455 H722" class="flow" marker-end="url(#arrowFlow)"/>
+  <path d="M923 455 H938" class="flow" marker-end="url(#arrowFlow)"/>
+
+  <text x="65" y="636" class="subtitle">Local-first retrieval pipeline â€¢ Evaluation helps measure search quality</text>
+</svg>

@@ -1,0 +1,478 @@
+﻿{
+    "dataset_name":  "NEXUS Retrieval Evaluation",
+    "dataset_version":  "1.1",
+    "evaluated_at_utc":  "2026-10-09T20:44:20.499324+00:00",
+    "index_directory":  "data/evaluation_index",
+    "indexed_chunk_count":  5,
+    "embedding_model":  "sentence-transformers/all-MiniLM-L6-v2",
+    "top_k":  5,
+    "metrics":  {
+                    "question_count":  8,
+                    "recall_at_1":  0.75,
+                    "recall_at_3":  1.0,
+                    "recall_at_5":  1.0,
+                    "mrr":  0.9375,
+                    "questions_with_missing_labels":  0,
+                    "questions_with_no_relevant_result":  0
+                },
+    "questions":  [
+                      {
+                          "id":  "rag-001",
+                          "question":  "What does a RAG system do?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c1"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  1.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.385507,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.147469,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.114693,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.062706,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.015253,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "embedding-001",
+                          "question":  "How does semantic search compare text meaning?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c2"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  1.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.603072,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.447694,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.400103,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.38008,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.246572,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "chunking-001",
+                          "question":  "Why does chunk size matter?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c4"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  0.5,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.41015,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.319664,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.08803,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.006757,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  -0.033134,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "metrics-001",
+                          "question":  "What do Recall at K and MRR measure?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c4"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  1.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.587375,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.49615,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.271273,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.198085,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.185496,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "rag-002",
+                          "question":  "How can a language model use external documents to answer questions?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c1"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  0.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  0.5,
+                          "first_relevant_rank":  2,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.420745,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.418062,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.177942,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.160204,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.085171,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "embedding-002",
+                          "question":  "What are text embeddings, and how are they used in vector search?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c2"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  1.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.726796,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.403871,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.377447,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.324997,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.197559,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "chunking-002",
+                          "question":  "What is document ingestion, and why are page numbers preserved?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c3"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  1.0,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.424417,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.366019,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.276716,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.241418,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.150491,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      },
+                      {
+                          "id":  "metrics-002",
+                          "question":  "How is the rank of the first relevant search result evaluated?",
+                          "relevant_chunk_ids":  [
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                     "data\\raw\\evaluation_corpus.pdf:p1:c5"
+                                                 ],
+                          "missing_relevant_chunk_ids":  [
+
+                                                         ],
+                          "recall_at_1":  0.5,
+                          "recall_at_3":  1.0,
+                          "recall_at_5":  1.0,
+                          "reciprocal_rank":  1.0,
+                          "first_relevant_rank":  1,
+                          "retrieved_results":  [
+                                                    {
+                                                        "rank":  1,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c5",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.528527,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  2,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c4",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.499339,
+                                                        "is_relevant":  true
+                                                    },
+                                                    {
+                                                        "rank":  3,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c2",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.293325,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  4,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c3",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.198513,
+                                                        "is_relevant":  false
+                                                    },
+                                                    {
+                                                        "rank":  5,
+                                                        "chunk_id":  "data\\raw\\evaluation_corpus.pdf:p1:c1",
+                                                        "source":  "data\\raw\\evaluation_corpus.pdf",
+                                                        "page_number":  1,
+                                                        "similarity":  0.187648,
+                                                        "is_relevant":  false
+                                                    }
+                                                ]
+                      }
+                  ]
+}
