@@ -1,23 +1,38 @@
-
 <div align="center">
 
-# NEXUS
+<img src="docs/assets/nexus-banner.svg" alt="NEXUS — Research & Knowledge Intelligence" width="100%"/>
 
-### Research & Knowledge Intelligence
+<br/>
 
-**Turn documents into searchable, evidence-backed answers.**
+<a href="https://github.com/ahsan-aflal-dev/nexus-research-intelligence">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3200&pause=1000&color=61DAFB&center=true&vCenter=true&width=860&lines=Turn+documents+into+searchable%2C+evidence-backed+answers.;Ingest+%E2%86%92+Chunk+%E2%86%92+Embed+%E2%86%92+Index+%E2%86%92+Retrieve+%E2%86%92+Generate+%E2%86%92+Inspect;Where+research+becomes+searchable+knowledge." alt="Typing animation"/>
+</a>
+
+<br/>
 
 A local-first research assistant built with retrieval-augmented generation (RAG), semantic search, source references, and retrieval evaluation.
 
 <br/>
 
-[![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/UI-React-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/Frontend-TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![RAG](https://img.shields.io/badge/AI-RAG-7657D5)](#how-it-works)
+[![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/UI-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/Frontend-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![RAG](https://img.shields.io/badge/AI-RAG-7657D5?style=for-the-badge)](#how-it-works)
 
-[Overview](#overview) · [Architecture](#architecture) · [Evaluation](#retrieval-evaluation) · [Getting Started](#getting-started)
+![Stars](https://img.shields.io/github/stars/ahsan-aflal-dev/nexus-research-intelligence?style=flat-square&logo=github&color=7657D5)
+![Forks](https://img.shields.io/github/forks/ahsan-aflal-dev/nexus-research-intelligence?style=flat-square&logo=github&color=61DAFB)
+![Last commit](https://img.shields.io/github/last-commit/ahsan-aflal-dev/nexus-research-intelligence?style=flat-square&color=009688)
+![Repo size](https://img.shields.io/github/repo-size/ahsan-aflal-dev/nexus-research-intelligence?style=flat-square&color=3178C6)
+![Recall@3](https://img.shields.io/badge/Recall%403-100%25-2ea44f?style=flat-square)
+![MRR](https://img.shields.io/badge/MRR-93.75%25-2ea44f?style=flat-square)
+
+<br/>
+
+[![Overview](https://img.shields.io/badge/Overview-7657D5?style=for-the-badge)](#overview)
+[![Architecture](https://img.shields.io/badge/Architecture-3178C6?style=for-the-badge)](#architecture)
+[![Evaluation](https://img.shields.io/badge/Evaluation-009688?style=for-the-badge)](#retrieval-evaluation)
+[![Getting Started](https://img.shields.io/badge/Getting_Started-61DAFB?style=for-the-badge&labelColor=black)](#getting-started)
 
 </div>
 
@@ -29,20 +44,69 @@ Research often means searching through PDFs, revisiting technical papers, and co
 
 NEXUS transforms PDF documents into a searchable knowledge base. Users can ask questions in natural language, retrieve relevant passages, and inspect the source material provided to the answer-generation workflow.
 
-**The core principle:** answers should be traceable to evidence. Relevant search results are useful, but retrieval quality alone does not guarantee that a generated answer is correct.
+> [!IMPORTANT]
+> **The core principle:** answers should be traceable to evidence. Relevant search results are useful, but retrieval quality alone does not guarantee that a generated answer is correct.
 
 ## Key Capabilities
 
-| Capability | Description |
-|---|---|
-| **Document ingestion** | Extract text from PDF documents for indexing |
-| **Text processing** | Split extracted text into smaller passages while preserving metadata |
-| **Semantic retrieval** | Find meaning-related passages using text embeddings |
-| **Answer generation** | Pass retrieved context to the configured Hermes workflow |
-| **Source references** | Expose available source details and page information alongside answers |
-| **Knowledge-base management** | Support document listing, indexing, and removal |
-| **Retrieval evaluation** | Measure ranked retrieval quality using Recall@K and Mean Reciprocal Rank |
-| **Web interface** | Interact with the research system through a React and TypeScript dashboard |
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 📄 Document ingestion
+Extract text from PDF documents for indexing
+
+</td>
+<td width="50%" valign="top">
+
+### ✂️ Text processing
+Split extracted text into smaller passages while preserving metadata
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🧠 Semantic retrieval
+Find meaning-related passages using text embeddings
+
+</td>
+<td width="50%" valign="top">
+
+### 💬 Answer generation
+Pass retrieved context to the configured Hermes workflow
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🔗 Source references
+Expose available source details and page information alongside answers
+
+</td>
+<td width="50%" valign="top">
+
+### 🗂️ Knowledge-base management
+Support document listing, indexing, and removal
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📊 Retrieval evaluation
+Measure ranked retrieval quality using Recall@K and Mean Reciprocal Rank
+
+</td>
+<td width="50%" valign="top">
+
+### 🖥️ Web interface
+Interact with the research system through a React and TypeScript dashboard
+
+</td>
+</tr>
+</table>
 
 ## Architecture
 
@@ -55,6 +119,12 @@ The diagram below illustrates the document-indexing and question-answering workf
 </div>
 
 ### How it works
+
+<div align="center">
+
+<img src="docs/assets/nexus-pipeline.svg" alt="NEXUS pipeline: Ingest, Chunk, Embed, Index, Retrieve, Generate, Inspect" width="100%"/>
+
+</div>
 
 ```mermaid
 flowchart TD
@@ -88,6 +158,19 @@ This makes source inspection and retrieval evaluation important parts of the sys
 
 ## Technology Stack
 
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+
+</div>
+
 | Layer | Technology |
 |---|---|
 | Backend | Python, FastAPI |
@@ -108,6 +191,14 @@ NEXUS includes a small retrieval benchmark to assess how effectively relevant pa
 
 ### Recorded results
 
+<div align="center">
+
+<img src="docs/assets/nexus-metrics.svg" alt="Retrieval evaluation results: Recall@1 75%, Recall@3 100%, Recall@5 100%, MRR 93.75%" width="100%"/>
+
+</div>
+
+<br/>
+
 | Metric | Result |
 |---|---:|
 | Evaluation questions | 8 |
@@ -127,7 +218,8 @@ NEXUS includes a small retrieval benchmark to assess how effectively relevant pa
 - Retrieval metrics do not measure answer factuality, citation correctness, or resistance to hallucinations.
 - The dataset is too small to support broad performance or production-readiness claims.
 
-A larger, independently verified evaluation set is needed to draw stronger conclusions.
+> [!NOTE]
+> A larger, independently verified evaluation set is needed to draw stronger conclusions.
 
 ## Getting Started
 
@@ -180,7 +272,8 @@ The API will be available at:
 - Interactive API documentation: `http://127.0.0.1:8000/docs`
 - Health check: `http://127.0.0.1:8000/health`
 
-Keep this terminal open while using the frontend.
+> [!TIP]
+> Keep this terminal open while using the frontend.
 
 ### 5. Start the frontend
 
@@ -246,7 +339,8 @@ NEXUS is a development project. Binding the API to `127.0.0.1` limits it to the 
 
 Before exposing the application to other devices or the internet, assess authentication, authorization, upload limits, file-path validation, PDF processing, resource consumption, error handling, and the security of the configured LLM workflow.
 
-Do not send confidential documents to an external model provider without reviewing its data-handling terms and confirming that you have permission to share the material.
+> [!WARNING]
+> Do not send confidential documents to an external model provider without reviewing its data-handling terms and confirming that you have permission to share the material.
 
 ## Roadmap
 
@@ -274,8 +368,10 @@ AI/ML Engineering — building intelligent systems, retrieval pipelines, and AI-
 
 <div align="center">
 
----
+<br/>
 
 **NEXUS — Where research becomes searchable knowledge.**
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" alt="footer wave" width="100%"/>
 
 </div>
