@@ -1,46 +1,60 @@
+
 <div align="center">
 
 # NEXUS
 
-### Personal Research & Knowledge Intelligence
+### Research & Knowledge Intelligence
 
-**Turn your documents into searchable, evidence-backed answers.**
+**Turn documents into searchable, evidence-backed answers.**
+
+A local-first research assistant built with retrieval-augmented generation (RAG), semantic search, source references, and retrieval evaluation.
+
+<br/>
 
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/UI-React-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/Frontend-TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![RAG](https://img.shields.io/badge/AI-RAG-7657D5)](#how-it-works)
 
-*A local-first research assistant built around document ingestion, semantic retrieval, source citations, and retrieval evaluation.*
+[Overview](#overview) · [Architecture](#architecture) · [Evaluation](#retrieval-evaluation) · [Getting Started](#getting-started)
 
 </div>
 
 ---
 
-## What is NEXUS?
+## Overview
 
-NEXUS is a research and knowledge intelligence application that turns PDF documents into a searchable knowledge base. Ask questions in natural language, retrieve relevant passages, and inspect the source material used to construct an answer.
+Research often means searching through PDFs, revisiting technical papers, and connecting information scattered across documents. NEXUS is designed to make that process more structured and searchable.
 
-NEXUS combines a document-processing pipeline, semantic search, an LLM-powered answer workflow, and a dashboard. Its goal is to make research easier to navigate while keeping retrieved evidence visible.
+NEXUS transforms PDF documents into a searchable knowledge base. Users can ask questions in natural language, retrieve relevant passages, and inspect the source material provided to the answer-generation workflow.
 
-> **Design principle:** An answer should be traceable to source material. Retrieval metrics help evaluate search quality, but do not by themselves prove that a generated answer is correct.
+**The core principle:** answers should be traceable to evidence. Relevant search results are useful, but retrieval quality alone does not guarantee that a generated answer is correct.
 
-## Capabilities
+## Key Capabilities
 
-| Capability | What it does |
+| Capability | Description |
 |---|---|
-| **PDF ingestion** | Extracts text from PDF documents for processing |
-| **Text processing** | Splits extracted content into retrievable chunks with metadata |
-| **Semantic search** | Uses text embeddings to find meaning-related passages |
-| **Evidence-backed answers** | Sends retrieved context to the configured Hermes workflow |
-| **Source citations** | Makes source details and page information available alongside answers |
-| **Knowledge-base management** | Supports document listing, indexing, and removal |
-| **Retrieval evaluation** | Evaluates ranked search results using Recall@K and Mean Reciprocal Rank |
-| **System dashboard** | Provides a UI for interacting with and monitoring the application |
+| **Document ingestion** | Extract text from PDF documents for indexing |
+| **Text processing** | Split extracted text into smaller passages while preserving metadata |
+| **Semantic retrieval** | Find meaning-related passages using text embeddings |
+| **Answer generation** | Pass retrieved context to the configured Hermes workflow |
+| **Source references** | Expose available source details and page information alongside answers |
+| **Knowledge-base management** | Support document listing, indexing, and removal |
+| **Retrieval evaluation** | Measure ranked retrieval quality using Recall@K and Mean Reciprocal Rank |
+| **Web interface** | Interact with the research system through a React and TypeScript dashboard |
 
-## How it works
+## Architecture
 
-![Animated NEXUS retrieval-augmented generation workflow](docs/assets/nexus-rag-flow.svg)
+The diagram below illustrates the document-indexing and question-answering workflows.
+
+<div align="center">
+
+![NEXUS RAG architecture and retrieval workflow](docs/assets/nexus-rag-flow.svg)
+
+</div>
+
+### How it works
 
 ```mermaid
 flowchart TD
@@ -54,44 +68,50 @@ flowchart TD
     E --> S
     S --> T["Retrieved evidence"]
     T --> U["Hermes answer workflow"]
-    U --> V["Answer with source references"]
+    U --> V["Answer and source references"]
     V --> W["NEXUS dashboard"]
 ```
 
-### Retrieval-augmented generation (RAG)
+1. **Ingest** — extract text from source documents.
+2. **Chunk** — divide the extracted text into retrievable passages.
+3. **Embed** — convert passages into numerical representations of semantic content.
+4. **Index** — store vectors and associated metadata in the local index.
+5. **Retrieve** — find and rank passages relevant to a user's question.
+6. **Generate** — provide retrieved context to the configured Hermes workflow.
+7. **Inspect** — review the generated response and available source references.
 
-1. **Ingest:** Extract text from a document.
-2. **Chunk:** Divide text into smaller passages and preserve relevant metadata.
-3. **Embed:** Convert passages into numerical representations of their semantic content.
-4. **Index:** Store vectors and associated metadata in the local index.
-5. **Retrieve:** Embed a question and rank relevant passages.
-6. **Generate:** Supply retrieved context to the configured Hermes workflow.
-7. **Inspect:** Review the answer and the available source references.
+### Why RAG?
 
-## Technology stack
+Retrieval-augmented generation combines information retrieval with language-model generation. Instead of relying exclusively on information learned during model training, a RAG workflow can provide relevant passages from a document collection as context for a response.
+
+This makes source inspection and retrieval evaluation important parts of the system. It does not eliminate hallucinations or guarantee that every answer is supported by its cited material.
+
+## Technology Stack
 
 | Layer | Technology |
 |---|---|
-| Backend API | Python, FastAPI |
+| Backend | Python, FastAPI |
 | PDF processing | PyMuPDF |
 | Embeddings | Sentence Transformers |
 | Embedding model | `sentence-transformers/all-MiniLM-L6-v2` |
 | Vector operations | NumPy-based local index |
-| LLM workflow | Hermes CLI |
+| Answer-generation workflow | Hermes CLI |
 | Frontend | React, TypeScript, Vite |
-| Backend tests | pytest, HTTPX |
-| Frontend checks | ESLint, TypeScript/Vite production build |
+| Backend testing | pytest, HTTPX |
+| Frontend quality checks | ESLint, production build |
 
-The embedding model and Hermes workflow serve different purposes: the embedding model supports retrieval, while Hermes is used for answer generation. They are not interchangeable.
+The embedding model and Hermes serve different purposes: the embedding model supports semantic retrieval, while Hermes is used for answer generation.
 
-## Retrieval evaluation
+## Retrieval Evaluation
 
-The initial small benchmark produced the following recorded results:
+NEXUS includes a small retrieval benchmark to assess how effectively relevant passages appear in ranked search results.
 
-| Metric | Recorded result |
+### Recorded results
+
+| Metric | Result |
 |---|---:|
 | Evaluation questions | 8 |
-| Indexed chunks in the benchmark | 5 |
+| Indexed chunks | 5 |
 | Recall@1 | 75% |
 | Recall@3 | 100% |
 | Recall@5 | 100% |
@@ -99,60 +119,38 @@ The initial small benchmark produced the following recorded results:
 | Missing relevance labels | 0 |
 | Queries with no relevant result | 0 |
 
-**How to interpret these results**
+**How to interpret these numbers**
 
-- **Recall@K** measures whether relevant passages appear within the first K retrieved results.
-- **MRR** rewards ranking a relevant passage closer to the top.
-- These figures describe a small retrieval benchmark, not the factual accuracy of generated answers.
-- They do not establish citation correctness, robustness across diverse documents, latency under load, or production readiness.
-- A larger, independently checked evaluation set is needed before making broader performance claims.
+- **Recall@K** measures whether relevant passages appear within the first K results.
+- **MRR** measures how highly the first relevant result is ranked.
+- These results describe a small benchmark, not general performance across research collections.
+- Retrieval metrics do not measure answer factuality, citation correctness, or resistance to hallucinations.
+- The dataset is too small to support broad performance or production-readiness claims.
 
-## Project structure
+A larger, independently verified evaluation set is needed to draw stronger conclusions.
 
-```text
-02-NEXUS/
-â”œâ”€â”€ app/                    # Python backend and RAG application
-â”œâ”€â”€ data/                   # Local documents, indexes, and generated data
-â”œâ”€â”€ docs/
-â”‚   â””â”€â”€ assets/
-â”‚       â””â”€â”€ nexus-rag-flow.svg
-â”œâ”€â”€ evaluation/              # Retrieval evaluation code and resources
-â”œâ”€â”€ frontend/                # React + TypeScript frontend
-â”œâ”€â”€ tests/                   # Backend tests
-â”œâ”€â”€ .gitignore
-â”œâ”€â”€ requirements.txt
-â”œâ”€â”€ README.md
-â””â”€â”€ update-release.ps1       # Local release-preparation script
-```
+## Getting Started
 
-The precise contents may evolve as the project develops. Local data and generated indexes should remain outside the public repository.
-
-## Prerequisites
+### Prerequisites
 
 - Windows with PowerShell
 - Python 3.14, matching the current development environment
 - Node.js and npm
 - Git
-- Hermes CLI configured for the model/provider you intend to use
+- Hermes CLI configured for the intended model/provider
 
-Python package and model compatibility can vary by platform. Use the project's tested environment when possible.
-
-## Getting started
+Package compatibility can vary across Python versions and platforms. The instructions below reflect the current development setup.
 
 ### 1. Clone the repository
 
-After publishing the repository, replace the placeholder URL with your actual GitHub URL:
-
 ```powershell
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd 02-NEXUS
+git clone https://github.com/ahsan-aflal-dev/nexus-research-intelligence.git
+cd nexus-research-intelligence
 ```
-
-If your repository uses a different directory name, enter that directory instead.
 
 ### 2. Set up the Python environment
 
-From the project root:
+Run these commands from the project root:
 
 ```powershell
 py -3.14 -m venv .venv
@@ -160,104 +158,124 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-If you already have a working project environment, avoid replacing it unnecessarily.
+If you already have a working environment, you do not need to recreate it.
 
 ### 3. Configure Hermes
 
-Install and configure Hermes according to its official instructions. Verify that the CLI is available in the terminal where you intend to run NEXUS.
+Install and configure Hermes according to its official installation instructions. Ensure the CLI is available in the terminal where NEXUS will run.
 
-NEXUS answer generation depends on the local Hermes configuration and any model/provider requirements it has. Installing the Python requirements alone does not configure an LLM provider.
+Answer generation depends on the Hermes configuration and the selected model/provider. Installing the Python dependencies alone does not configure an LLM provider.
 
 ### 4. Start the backend
 
-From the project root, start the NEXUS API with:
+From the project root:
 
 ```powershell
 .\.venv\Scripts\python.exe -m uvicorn app.api:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8000/docs` to inspect the FastAPI API documentation.
+The API will be available at:
 
+- API: `http://127.0.0.1:8000`
+- Interactive API documentation: `http://127.0.0.1:8000/docs`
+- Health check: `http://127.0.0.1:8000/health`
 
+Keep this terminal open while using the frontend.
 
 ### 5. Start the frontend
 
 Open a second PowerShell terminal:
 
 ```powershell
-cd .\frontend
+cd frontend
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite in the terminal.
+Open the local URL printed by Vite.
 
-### 6. Run backend tests and frontend checks
+### 6. Run the checks
 
-In a separate terminal at the project root:
+From the project root, run the backend tests:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Then check the frontend:
+Then run the frontend checks from the `frontend` directory:
 
 ```powershell
-cd .\frontend
 npm run lint
 npm run build
 ```
 
-A successful production build and passing tests are useful checks, but they do not guarantee that every workflow is free of defects.
+Passing tests and producing a successful build are useful quality checks, but neither guarantees that every workflow is free of defects.
 
-## Configuration and data handling
+## Project Structure
 
-NEXUS processes local documents and may create local indexes, evaluation files, and benchmark output. Keep private research material and generated artifacts out of version control.
+```text
+nexus-research-intelligence/
+├── app/                 # Backend API and RAG application
+├── docs/
+│   └── assets/          # Architecture diagram
+├── evaluation/          # Retrieval evaluation resources
+├── frontend/            # React and TypeScript application
+├── tests/               # Backend tests
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
 
-Before publishing, verify that:
+Local documents, generated indexes, databases, and other private artifacts are intentionally excluded from the public repository.
 
-- `.env` files and API credentials are excluded.
-- Personal PDFs, private notes, and local datasets are excluded.
-- Generated indexes, databases, and benchmark outputs are excluded unless deliberately prepared for public release.
-- No API keys, access tokens, session identifiers, or personal information appear in tracked files.
-- The repository does not contain private logs or machine-specific paths that should not be public.
+## Configuration & Data Handling
 
-## Security notes
+NEXUS can process local documents and generate local indexes, evaluation files, and benchmark output.
 
-NEXUS is a development project. A local API bound to `127.0.0.1` is not a substitute for a security review.
+Before publishing changes, verify that:
 
-Before exposing it to other devices or the internet, review authentication, authorization, upload limits, file-path validation, PDF processing, resource consumption, error handling, and the security of the configured LLM workflow.
+- Environment files and API credentials are excluded.
+- Private PDFs, notes, and datasets are not committed.
+- Generated indexes and databases are excluded unless intentionally prepared for release.
+- Tracked files contain no access tokens, session identifiers, or sensitive information.
+- Machine-specific paths and private logs are not exposed.
 
-Do not upload confidential documents to an external model provider unless you have reviewed the provider's data-handling terms and have permission to share the material.
+## Security Considerations
+
+NEXUS is a development project. Binding the API to `127.0.0.1` limits it to the local machine; it does not replace a security review.
+
+Before exposing the application to other devices or the internet, assess authentication, authorization, upload limits, file-path validation, PDF processing, resource consumption, error handling, and the security of the configured LLM workflow.
+
+Do not send confidential documents to an external model provider without reviewing its data-handling terms and confirming that you have permission to share the material.
 
 ## Roadmap
 
-- [ ] Add continuous integration for backend tests and frontend checks
-- [ ] Expand retrieval evaluation with a larger, manually verified benchmark
-- [ ] Evaluate answer factuality and citation correctness separately from retrieval
-- [ ] Add reproducible clean-install and startup instructions
-- [ ] Document configuration and failure recovery
-- [ ] Add real screenshots of the working application
-- [ ] Review security boundaries before any remote deployment
-- [ ] Choose and add a project license
+- [ ] Add continuous integration for backend and frontend checks.
+- [ ] Expand retrieval evaluation using a larger, manually verified benchmark.
+- [ ] Evaluate answer factuality and citation correctness separately from retrieval.
+- [ ] Improve clean-install documentation and configuration guidance.
+- [ ] Add genuine screenshots of the running application.
+- [ ] Test failure recovery and document operational limitations.
+- [ ] Review security boundaries before remote deployment.
+- [ ] Select and add an appropriate open-source license.
 
-## Current limitations
+## Current Limitations
 
-- Retrieval results depend on the quality of extracted PDF text, chunking, embeddings, and evaluation labels.
-- The initial benchmark is small and should not be treated as a general performance guarantee.
-- Generated answers may be incorrect even when retrieval returns relevant passages.
-- Hermes availability and answer quality depend on the configured environment and model/provider.
-- Production deployment requires additional security, reliability, and performance work.
+- Retrieval quality depends on PDF text extraction, chunking, embeddings, and relevance labels.
+- The current benchmark is small and does not establish general retrieval performance.
+- Generated answers may be incorrect even when relevant passages are retrieved.
+- Answer quality depends on the configured Hermes environment and model/provider.
+- Production use would require additional security, reliability, and performance testing.
 
 ## Author
 
 **Tuan Ahsan Aflal**  
-AI/ML Engineering â€” building intelligent systems, retrieval pipelines, and AI-powered software.
-
----
+AI/ML Engineering — building intelligent systems, retrieval pipelines, and AI-powered software.
 
 <div align="center">
 
-**NEXUS â€” Where research becomes searchable knowledge.**
+---
+
+**NEXUS — Where research becomes searchable knowledge.**
 
 </div>
